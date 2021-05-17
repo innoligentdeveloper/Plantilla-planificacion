@@ -1,34 +1,34 @@
 \documentclass[
 11pt, % The default document font size, options: 10pt, 11pt, 12pt
-codirector, % Uncomment to add a codirector to the title page
+%codirector, % Uncomment to add a codirector to the title page
 ]{charter} 
 
 
 
 
 % El títulos de la memoria, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \ttitle
-\titulo{Título del proyecto} 
+\titulo{Monitoreo de un Túnel de Congelado} 
 
 % Nombre del posgrado, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \degreename
-\posgrado{Carrera de Especialización en Sistemas Embebidos} 
-%\posgrado{Carrera de Especialización en Internet de las Cosas} 
+%\posgrado{Carrera de Especialización en Sistemas Embebidos} 
+\posgrado{Carrera de Especialización en Internet de las Cosas} 
 %\posgrado{Carrera de Especialización en Intelegencia Artificial}
 %\posgrado{Maestría en Sistemas Embebidos} 
 %\posgrado{Maestría en Internet de las cosas}
 
 % Tu nombre, se puede usar el cualquier lugar del documento con el comando \authorname
-\autor{Nombre del Autor} 
+\autor{Lic. Leandro Ciribé}
 
 % El nombre del director y co-director, se puede usar el cualquier lugar del documento con el comando \supname y \cosupname y \pertesupname y \pertecosupname
-\director{Nombre del Director}
-\pertenenciaDirector{pertenencia} 
+\director{Mg. Ing. Marcelo Pistarelli}
+\pertenenciaDirector{UNR} 
 % FIXME:NO IMPLEMENTADO EL CODIRECTOR ni su pertenencia
 \codirector{John Doe} % para que aparezca en la portada se debe descomentar la opción codirector en el documentclass
 \pertenenciaCoDirector{FIUBA}
 
 % Nombre del cliente, quien va a aprobar los resultados del proyecto, se puede usar con el comando \clientename y \empclientename
-\cliente{Nombre del cliente}
-\empresaCliente{Empresa del cliente}
+\cliente{Edgar A. Ciribé }
+\empresaCliente{Edgar A. Ciribé S.A. }
 
 % Nombre y pertenencia de los jurados, se pueden usar el cualquier lugar del documento con el comando \jurunoname, \jurdosname y \jurtresname y \perteunoname, \pertedosname y \pertetresname.
 \juradoUno{Nombre y Apellido (1)}
@@ -69,7 +69,7 @@ codirector, % Uncomment to add a codirector to the title page
 \rowcolor[HTML]{C0C0C0} 
 Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios realizados} & Fecha      \\ \hline
 0      & Creación del documento                                 &\fechaInicioName \\ \hline
-%1      & Se completa hasta el punto 4 inclusive                 & dd/mm/aaaa \\ \hline
+1      & Se completa hasta el punto 3 inclusive                 & 13/05/2021 \\ \hline
 %2      & Se completa hasta el punto 7 inclusive
 %		  Se puede agregar algo más \newline
 %		  En distintas líneas \newline
@@ -87,12 +87,12 @@ Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios 
 \label{sec:acta}
 
 \begin{flushright}
-Buenos Aires, \fechaInicioName
+Santa Fe, \fechaInicioName
 \end{flushright}
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en \textcolor{red}{la implementación de un prototipo de un sistema de control de temperatura de un calefón}, y tendrá un presupuesto preliminar estimado de \textcolor{red}{600} hs de trabajo y \textcolor{red}{\$XXX}, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
+Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en el sensado de parámetros útiles para obtener la información que permita identificar, predecir y alertar ante cualquier desvío o falla técnica, maximizando la disponibilidad de la central de frío, y tendrá un presupuesto preliminar estimado de 600 hs de trabajo y {\$40.000}, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -115,58 +115,64 @@ Se adjunta a esta acta la planificación inicial.
 \section{Descripción técnica-conceptual del proyecto a realizar}
 \label{sec:descripcion}
 
+\begin{consigna}{black}
 
-\begin{consigna}{red} % El bloque "consigna" se usa para poner texto en rojo y dar una pequeña ayuda sobre cómo completar la sección
+\empclientename es una empresa dedicada al procesamiento de cuartos de carne bovina con destino de consumo humano en el mercado interno y de exportación. El producto terminado se dispone en cajas que rondan los 23 kilos de peso y son almacenadas en cámaras de enfriado o congelado, dependiendo del destino final de comercialización y de los requerimientos de cada uno de sus clientes.
 
-El objetivo es que el lector en una o dos páginas entienda de qué se trata el proyecto y cuáles son sus desafíos, su motivación y su importancia.
+Para el proceso de congelado, la caja debe ingresarse en un “túnel de congelado” por 36 horas para que alcance una temperatura bajo cero y pueda ser luego trasladada a la cámara de congelado donde se almacenará a una temperatura aproximada de -24ºC.
 
-Se debe destacar claramente cuál es el valor que agrega el proyecto a realizar. ``El presente proyecto se destaca especialmente por incorporar tal cosa... Esto lo diferencia de otros sistemas similares en que ...''
+Actualmente, el establecimiento frigorífico cuenta con un sistema de monitoreo y alertas de gran parte de sus instalaciones de frío; entre las cuales se incluyen el sensado de temperatura ambiente de todas las cámaras de la planta, el monitoreo de encendido y apagado de las mismas y el control de la central de congelado. Para toda esta implementación se utilizó hardware de sensado basado en el controlador WiFi ESP8266 y una gran integración de distintos sistemas de software para la visualización de los valores en tiempo real y el almacenamiento de los datos recolectados para su posterior análisis. Para el sistema de alertas se utiliza el correo electrónico, dado que es el medio más efectivo para el personal de mantenimiento.
 
-Puede ser útil incluir en esta sección la respuesta a alguna de estas preguntas:
-
-\begin{itemize}
-	\item ¿Cómo se vincula este proyecto con la misión de la organización?
-	\item ¿Cómo se inserta este proyecto en el modelo de negocio de la organización?
-	\item ¿Ayuda a la explicación si se incluye un lienzo Canvas del Modelo de Negocio?
-	\item ¿En qué estado del ciclo de vida está el producto que se desea reemplazar o mejorar?
-	\item ¿Cuáles son las necesidades que debe satisfacer?
-	\item ¿Por dónde pasa la innovación?
-\end{itemize}
-
-La descripción técnica-conceptual \textbf{debe incluir al menos un diagrama en bloques del sistema} y una frase como la siguiente: ``En la Figura \ref{fig:diagBloques} se presenta el diagrama en bloques del sistema. Se observa que...''. Luego recién más abajo de haber puesto esta frase, se pone la figura. La regla es que las figuras nunca pueden ir antes de ser mencionadas en el texto, porque sino el lector no entiende por qué de pronto aparece una figura.
-
-%\vspace{25px}
+El presente proyecto se destaca especialmente por incorporar al sistema actual el monitoreo del túnel de congelado, que es una de las actividades claves en el proceso de conservación y almacenamiento de la carne con destino a exportación, como se puede observar en la figura \ref{fig:canvasdone} dentro del modelo Canvas. 
 
 \begin{figure}[htpb]
 \centering 
-\includegraphics[width=.5\textwidth]{./Figuras/diagBloques.png}
-\caption{Diagrama en bloques del sistema}
-\label{fig:diagBloques}
+\includegraphics[width=.75\textwidth]{./Figuras/canvasdone.png}
+\caption{Modelo Canvas}
+\label{fig:canvasdone}
 \end{figure}
 
-\vspace{25px}
+Comprendiendo la importancia de suministrar alimentos seguros y saludables, la Dirección de la Empresa, toma el compromiso de implementar y mantener un sistema de Control de Calidad basado en los lineamientos del Sistema de Análisis de Riesgos y Puntos Críticos de Control (HACCP), para todos sus productos. Debido a esto, el control de temperatura tanto de carnes como de cámaras de almacenamiento, juega un papel fundamental. Además, al ser una central frigorífica con casi 22 años de edad, es imperioso contar con un sistema de monitoreo en tiempo real de las instalaciones críticas para poder predecir anomalías que pueden ser de un costo muy significativo para la empresa y su misión.
 
-El tamaño de la tipografía en TODAS las figuras debe ser adecuado para que NO pase lo que ocurre acá, donde el lector debe esforzarse para poder leer el texto. Los colores usados en el diagrama deben ser adecuados, tal que ayuden a comprender mejor el diagrama, preferentemente en la gama de colores pastel.
+En cuanto a la parte técnica, la central de frío del túnel de congelado consta de dos compresores alemanes marca Bock de 25 hp, un banco de condensadores, dos placas de intercambio y un circuito con una bomba de circulación de agua y glicol que enfría las placas de congelamiento por contacto. Como se puede observar en la figura \ref{fig:circuito_tunel}, la central de refrigeración realiza su ciclo normal de enfriado con el objetivo de llevar el líquido circulante a temperaturas bajo cero, mientras es conducido hacia las estanterías de congelado por contacto.
+
+\begin{figure}[htpb]
+\centering 
+\includegraphics[width=.7\textwidth]{./Figuras/circuito_tunel.png}
+\caption{Ciclo de refrigeración con depósito de agua y glicol}
+\label{fig:circuito_tunel}
+\end{figure}
+
+A nivel general, el sistema debe poder cumplir con el objetivo de predecir fallas y alertar ante situaciones críticas que surjan del monitoreo de la central y, de esta manera, lograr reducir los costos de mantenimiento prolongando el tiempo de uso de los equipos. Para poder cumplir con estos requerimientos se necesitan medir los siguientes puntos:
+\begin{itemize}
+	\item Consumo en Amperes de cada compresor,
+	\item Temperatura de succión y de salida de cada compresor,
+	\item Temperatura de los intercambiadores,	
+	\item Temperatura de retorno del banco de condensadores,
+	\item Consumo en Amperes de la bomba de agua,
+	\item Temperatura de cada estantería de congelado por contacto,
+	\item Temperatura ambiente del túnel de congelado, y
+	\item Temperatura exterior (ambiental).
+\end{itemize}
+
+Cada uno de estos puntos de sensado proporciona datos que pueden ser transformados en información extremadamente útil. Por ejemplo, una temperatura de succión muy baja, por un período de tiempo prolongado, puede indicar que está retornando líquido al compresor, lo cual es de una gravedad considerable.
+
+Siguiendo el comportamiento del sistema que ya ha sido implementado parcialmente por la empresa (ver figura \ref{fig:diagramabloques}), la información recolectada por el hardware de monitoreo debe enviarse por WiFi al servidor Blynk a través del protocolo MQTT. El servidor Blynk presenta una API REST para que los datos puedan ser accedidos desde Python y almacenados en una base de datos PostgreSQL para su posterior utilización y análisis. Al momento de ir sensando y recolectando cada dato se ejecutan las validaciones correspondientes que activan alertas por correo electrónico al personal de mantenimiento. A su vez, los usuarios pueden visualizar los datos en tiempo real desde la aplicación en Blynk, ya sea dentro o fuera de la empresa, en cuyo caso la conexión se realiza a través de una red privada virtual (VPN). Para consultar, visualizar o graficar la información recolectada se utilizan páginas web en Django; y en determinados puntos críticos de control se puede acceder a información histórica específica a través de web services.
+
+\begin{figure}[htpb]
+\centering 
+\includegraphics[width=.9\textwidth]{./Figuras/diagramabloques.png}
+\caption{Diagrama de bloques del sistema}
+\label{fig:diagramabloques}
+\end{figure}
+
 \end{consigna}
-
 
 \section{Identificación y análisis de los interesados}
 \label{sec:interesados}
 
-\begin{consigna}{red} 
-Nota: (borrar esto y todas las consignas en color rojo antes de entregar este documento).
- 
-Es inusual que una misma persona esté en más de un rol, incluso en proyectos chicos.
- 
-Si se considera que una persona cumple dos o más roles, entonces sólo dejarla en el rol más importante. Por ejemplo:
-
-\begin{itemize}
-\item Si una persona es Cliente pero también colabora u orienta, dejarla solo como Cliente.
-\item Si una persona es el Responsable, no debe ser colocado también como Miembro del equipo.
-\end{itemize}
-
-Pero en cambio sí es usual que el Cliente y el Auspiciante sean el mismo, por ejemplo.
-
+\begin{consigna}{black}
+A continuación se pueden observar las personas interesadas en este proyecto y el rol que cada una va a desempeñar.
 \begin{table}[ht]
 %\caption{Identificación de los interesados}
 %\label{tab:interesados}
@@ -174,34 +180,50 @@ Pero en cambio sí es usual que el Cliente y el Auspiciante sean el mismo, por e
 \hline
 \rowcolor[HTML]{C0C0C0} 
 Rol           & Nombre y Apellido & Organización 	& Puesto 	\\ \hline
-Auspiciante   &                   &              	&        	\\ \hline
-Cliente       & \clientename      &\empclientename	&        	\\ \hline
-Impulsor      &                   &              	&        	\\ \hline
+Auspiciante   & \clientename      &\empclientename	& Presidente 	\\ \hline
+Cliente       & \clientename      &\empclientename	&Presidente 		\\ \hline
+Impulsor      & Hernán Ciribé	 &\empclientename	&Gerente Gral.		\\ \hline
 Responsable   & \authorname       & FIUBA        	& Alumno 	\\ \hline
-Colaboradores &                   &              	&        	\\ \hline
+Colaboradores & Andrés Giacomino  &YACO Refrigeración 	&Dueño       	\\ \hline
 Orientador    & \supname	      & \pertesupname 	& Director Trabajo final \\ \hline
-Equipo        & miembro1 \newline 
-				miembro2          &              	&        	\\ \hline
-Opositores    &                   &              	&        	\\ \hline
-Usuario final &                   &              	&        	\\ \hline
+Equipo        & Lucas Tondo \newline 
+				Ignacio Abendaño          &\empclientename &Operarios Mantenimiento        	\\ \hline
+Usuario final &Lucas Tondo \newline 
+				Ignacio Abendaño \newline 
+				Hernán Ciribé  \newline 
+				Leandro Ciribé &\empclientename	&Gerencia y Mantenimiento \\ \hline
 \end{tabularx}
 \end{table}
 
-El Director suele ser uno de los Orientadores.
-
-No dejar celdas vacías; si no hay nada que poner en una celda colocar un signo ``-''.
-
-No dejar filas vacías; si no hay nada que poner en una fila entonces eliminarla.
-
-Es deseable listar a continuación las principales características de cada interesado.
- 
-Por ejemplo:
+Las principales características de cada interesado son:
 \begin{itemize}
-	\item Auspiciante: es riguroso y exigente con la rendición de gastos. Tener mucho cuidado con esto.
-	\item Equipo: Juan Perez, suele pedir licencia porque tiene un familiar con una enfermedad. Planificar considerando esto.
-	\item Orientador: María Gómez va a poder ayudar mucho con la definición de los requerimientos.
+	\item Auspiciante: está muy interesado en poder reducir los costos de mantenimiento. Estima realizar una inversión inferior al costo del arreglo de un compresor, que puede llegar a rondar los 40.000 pesos.
+	\item Cliente: es una persona que necesita poder constatar las mejoras obtenidas, en cuanto a ahorro monetario, debido a un mantenimiento preventivo realizado correctamente y a tiempo.
+	\item Impulsor: persona que está muy interesada en incorporar adelantos tecnológicos que reduzcan los costos y mejoren la operatoria de la empresa.
+	\item Responsable: está muy interesado en maximizar el tiempo de disponibilidad de los equipamientos y reducir los índices de roturas particularmente en compresores.
+	\item Colaboradores: es la persona indicada para ayudar a evacuar cualquier duda sobre tecnologías de centrales frigoríficas. Tener en cuenta que a veces su tiempo disponible es escaso.
+	\item Orientador: es una persona idónea para consultar y definir los objetivos a seguir en el proyecto.
+	\item Equipo: ambas personas son responsables y proactivas en incorporar nuevas tecnologías que mejoren su trabajo.
+	\item Usuario Final: están urgidos en disponer de la información para poder tomar las mejores decisiones dentro de su área de trabajo.
 \end{itemize}
-
+%Cliente
+%Quien aprobará el producto, servicio o resultado del proyecto.
+%Auspiciante
+%Quien financia el proyecto y por lo tanto es la última autoridad.
+%Usuario final
+%Quien utilizará realmente el producido del proyecto (end user).
+%Impulsor
+%Una alta autoridad que hará “campaña” por el proyecto (champion).
+%Orientadores
+%Participan en definir los objetivos del proyecto (drivers).
+%Colaboradores
+%Colaboran con el proyecto y aportan recursos (supporters).
+%Responsable
+%Persona con autoridad para gestionar el proyecto (project manager).
+%Equipo
+%Las personas que harán el trabajo cotidiano del proyecto.
+%Opositor
+%Quien se opone a que se haga el proyecto y trata de sabotearlo
 \end{consigna}
 
 
@@ -209,39 +231,28 @@ Por ejemplo:
 \section{1. Propósito del proyecto}
 \label{sec:proposito}
 
-\begin{consigna}{red}
-¿Por qué se hace el proyecto? ¿Qué se quiere lograr? 
-
-Se recomienda que sea solo un párrafo que empiece diciendo ``El propósito de este proyecto es...''.
+\begin{consigna}{black}
+El propósito de este proyecto es disponer de información útil para identificar cambios en el comportamiento normal de una central de frío, poder aprender a predecir fallas que sean de un costo significativo para la empresa y maximizar el tiempo de disponibilidad de la central frigorífica.
 \end{consigna}
 
 \section{2. Alcance del proyecto}
 \label{sec:alcance}
 
-\begin{consigna}{red}
-¿Qué se incluye y que no se incluye en este proyecto?
-
-Se refiere al trabajo a hacer para entregar el producto o resultado especificado. 
-
-Explicitar todo lo quede comprendido dentro del alcance del proyecto.
-
-Explicitar además todo lo que no quede incluido (``El presente proyecto no incluye...'')
-
+\begin{consigna}{black}
+En el presente proyecto se incorporarán nuevos sensores para medir el consumo de cada compresor y sensores de temperatura en lugares claves de la central del túnel de congelado (como ya se ha detallado anteriormente en este documento). También se utilizarán datos de sensores ya existentes en el sistema y se incorporarán las líneas de código necesarias para adaptar los nuevos sensores al sistema vigente. En el proyecto no se incluye el sensado de presión, como así tampoco el monitoreo de la central de media temperatura que será implementado en una etapa posterior.
 \end{consigna}
 
 
 \section{3. Supuestos del proyecto}
 \label{sec:supuestos}
 
-\begin{consigna}{red}
-``Para el desarrollo del presente proyecto se supone que: ...''
-
+\begin{consigna}{black}
+Para el desarrollo del presente proyecto se supone que:
 \begin{itemize}
-	\item Supuesto 1
-	\item Supuesto 2...
+	\item La empresa dispondrá de los materiales necesarios, como por ejemplo los controladores WiFi y demás sensores.
+	\item El personal de mantenimiento asistirá en las tareas de instalación y conexión del hardware.
+	\item El área de informática otorgará los permisos y la infraestructura necesaria para la implementación.
 \end{itemize}
-
-Por ejemplo, se podrían incluir supuestos respecto a disponibilidad de tiempo y recursos humanos y materiales, sobre la factibilidad técnica de distintos aspectos del proyecto, sobre otras cuestiones que sean necesarias para el éxito del proyecto como condiciones macroeconómicas o reglamentarias.
 \end{consigna}
 
 \section{4. Requerimientos}
