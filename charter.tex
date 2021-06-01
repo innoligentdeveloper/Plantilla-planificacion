@@ -72,13 +72,11 @@ Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios 
 1      & Se completa hasta el punto 3 inclusive                 & 13/05/2021 \\ \hline
 2      & Se completa hasta el punto 7 inclusive                 & 21/05/2021 \\ \hline
 3      & Se completa hasta el punto 10 inclusive con presupuesto               & 28/05/2021 \\ \hline
-%4      & Se completa el plan. con proceso de cierre	                                 & 04/06/2021 \\ \hline
+4      & Se completa el plan con proceso de cierre	                          & 04/06/2021 \\ \hline
 \end{tabularx}
 \end{table}
 
 \pagebreak
-
-
 
 \section{Acta de constitución del proyecto}
 \label{sec:acta}
@@ -106,13 +104,8 @@ Se adjunta a esta acta la planificación inicial.
 \end{tabular}
 \end{table}
 
-
-
-
 \section{Descripción técnica-conceptual del proyecto a realizar}
 \label{sec:descripcion}
-
-\begin{consigna}{black}
 
 \empclientename es una empresa dedicada al procesamiento de cuartos de carne bovina con destino de consumo humano en el mercado interno y de exportación. El producto terminado se dispone en cajas que rondan los 23 kilos de peso y son almacenadas en cámaras de enfriado o congelado, dependiendo del destino final de comercialización y de los requerimientos de cada uno de sus clientes.
 
@@ -163,12 +156,9 @@ Siguiendo el comportamiento del sistema que ya ha sido implementado parcialmente
 \label{fig:diagramabloques}
 \end{figure}
 
-\end{consigna}
-
 \section{Identificación y análisis de los interesados}
 \label{sec:interesados}
 
-\begin{consigna}{black}
 A continuación se pueden observar las personas interesadas en este proyecto y el rol que cada una va a desempeñar.
 \begin{table}[ht]
 %\caption{Identificación de los interesados}
@@ -203,59 +193,30 @@ Las principales características de cada interesado son:
 	\item Equipo: ambas personas son responsables y proactivas en incorporar nuevas tecnologías que mejoren su trabajo.
 	\item Usuario Final: están urgidos en disponer de la información para poder tomar las mejores decisiones dentro de su área de trabajo.
 \end{itemize}
-%Cliente
-%Quien aprobará el producto, servicio o resultado del proyecto.
-%Auspiciante
-%Quien financia el proyecto y por lo tanto es la última autoridad.
-%Usuario final
-%Quien utilizará realmente el producido del proyecto (end user).
-%Impulsor
-%Una alta autoridad que hará “campaña” por el proyecto (champion).
-%Orientadores
-%Participan en definir los objetivos del proyecto (drivers).
-%Colaboradores
-%Colaboran con el proyecto y aportan recursos (supporters).
-%Responsable
-%Persona con autoridad para gestionar el proyecto (project manager).
-%Equipo
-%Las personas que harán el trabajo cotidiano del proyecto.
-%Opositor
-%Quien se opone a que se haga el proyecto y trata de sabotearlo
-\end{consigna}
-
-
 
 \section{1. Propósito del proyecto}
 \label{sec:proposito}
 
-\begin{consigna}{black}
 El propósito de este proyecto es disponer de información útil para identificar cambios en el comportamiento normal de una central de frío, poder aprender a predecir fallas que sean de un costo significativo para la empresa y maximizar el tiempo de disponibilidad de la central frigorífica.
-\end{consigna}
 
 \section{2. Alcance del proyecto}
 \label{sec:alcance}
 
-\begin{consigna}{black}
 En el presente proyecto se incorporarán nuevos sensores para medir el consumo de cada compresor y sensores de temperatura en lugares claves de la central del túnel de congelado (como ya se ha detallado anteriormente en este documento). También se utilizarán datos de sensores ya existentes en el sistema y se incorporarán las líneas de código necesarias para adaptar los nuevos sensores al sistema vigente. En el proyecto no se incluye el sensado de presión, como así tampoco el monitoreo de la central de media temperatura que será implementado en una etapa posterior.
-\end{consigna}
-
 
 \section{3. Supuestos del proyecto}
 \label{sec:supuestos}
 
-\begin{consigna}{black}
 Para el desarrollo del presente proyecto se supone que:
 \begin{itemize}
 	\item La empresa dispondrá de los materiales necesarios, como por ejemplo los controladores WiFi y demás sensores.
 	\item El personal de mantenimiento asistirá en las tareas de instalación y conexión del hardware.
 	\item El área de informática otorgará los permisos y la infraestructura necesaria para la implementación.
 \end{itemize}
-\end{consigna}
 
 \section{4. Requerimientos}
 \label{sec:requerimientos}
 
-\begin{consigna}{black}
 Se detallan a continuación los distintos requerimientos del sistema.
 \begin{enumerate}
 	\item Requerimientos técnicos
@@ -303,12 +264,10 @@ Se detallan a continuación los distintos requerimientos del sistema.
 			\item El nuevo módulo de monitoreo del túnel de congelado debe quedar integrado al sistema legacy
 		\end{enumerate}
 \end{enumerate}
-\end{consigna}
 
 \section{5. Historias de usuarios (\textit{Product backlog})}
 \label{sec:backlog}
 
-\begin{consigna}{black}
 Como encargado de mantenimiento quiero saber si un compresor presenta algún problema. Ponderación: 5+5+2=12, Story Point: 13
 
 Como encargado de mantenimiento quiero saber si la central no está funcionando como debería. Ponderación: 5+5+2=12, Story Point: 13
@@ -328,7 +287,7 @@ Criterios que se toman para calcular los \textit{story points} de cada historia:
 
 \begin{table}[ht]
 %\caption{Criterios para story points}
-\begin{tabularx}{\linewidth}{@{}|l|X|X|l|@{}}
+\begin{tabularx}{\linewidth}{@{}|X|X|X|X|@{}}
 \hline
 \rowcolor[HTML]{C0C0C0} 
 Pesos criterios  & Bajo & Medio	& Alto \\ \hline
@@ -338,11 +297,8 @@ C) Incertidumbre & 2	    & 3      & 5	 \\ \hline
 \end{tabularx}
 \end{table}
 
-\end{consigna}
-
 \section{6. Entregables principales del proyecto}
 \label{sec:entregables}
-\begin{consigna}{black}
 Los entregables del proyecto son:
 \begin{itemize}
 	\item Guía rápida de uso
@@ -353,12 +309,9 @@ Los entregables del proyecto son:
 	\item Informe final
 \end{itemize}
 
-\end{consigna}
-
 \section{7. Desglose del trabajo en tareas}
 \label{sec:wbs}
 
-\begin{consigna}{black}
 El proyecto consta de las siguientes tareas:
 
 \begin{enumerate}
@@ -397,9 +350,7 @@ El proyecto consta de las siguientes tareas:
 \end{enumerate}
 
 Cantidad total de horas: 600 hs
-
-\end{consigna}
-
+\pagebreak
 \section{8. Diagrama de Activity On Node}
 \label{sec:AoN}
 En la figura \ref{fig:AoN} se puede apreciar el camino crítico del presente proyecto. Las tareas están agrupadas por colores indicando su grupo principal.
@@ -421,7 +372,6 @@ El siguiente diagrama nos muestra la planificación completa de nuestro proyecto
 \caption{\textit{Diagrama de Gantt}}
 \label{fig:gantt}
 \end{figure}
-
 
 \section{10. Presupuesto detallado del proyecto}
 \label{sec:presupuesto}
@@ -483,35 +433,47 @@ Descripción &
 \end{tabularx}%
 \end{table}
 
-
 \section{11. Gestión de riesgos}
 \label{sec:riesgos}
 
-\begin{consigna}{red}
-a) Identificación de los riesgos (al menos cinco) y estimación de sus consecuencias:
- 
-Riesgo 1: detallar el riesgo (riesgo es algo que si ocurre altera los planes previstos de forma negativa)
+Los riesgos que figuran a continuación serán cuantificados de acuerdo a los siguientes parámetros:
 \begin{itemize}
-	\item Severidad (S): mientras más severo, más alto es el número (usar números del 1 al 10).\\
-	Justificar el motivo por el cual se asigna determinado número de severidad (S).
-	\item Probabilidad de ocurrencia (O): mientras más probable, más alto es el número (usar del 1 al 10).\\
-	Justificar el motivo por el cual se asigna determinado número de (O). 
+	\item Severidad (S): mientras más severo es el riesgo, más alto es el número a utilizar. Rango del 1 al 10.\\
+	\item Probabilidad de ocurrencia (O): mientras más probable es que ocurra el riesgo, más alto es el número. Rango del 1 al 10.\\
 \end{itemize}   
 
-Riesgo 2:
+Riesgo 1: No cumplir con la fecha de entrega acordada.
 \begin{itemize}
-	\item Severidad (S): 
-	\item Ocurrencia (O):
+	\item Severidad (10): este riesgo conlleva a no poder aprobar la especialización en IoT.\\
+	\item Ocurrencia (6): dado que el proyecto será realizado en horas de trabajo se podrían estirar los plazos de entrega. Pese a esto, al ser un proyecto importante para la empresa, es posible de que ocurra. \\
+\end{itemize}   
+
+Riesgo 2: Cumplir parcialmente con los requerimientos pactados con la empresa.
+\begin{itemize}
+	\item Severidad (8): conlleva a la entrega de un producto que no funciona como es esperado por el cliente o con funcionalidad disminuida.
+	\item Ocurrencia (3): como un sistema similar ya ha sido realizado por la empresa en otros equipos de refrigeración la probabilidad que esto ocurra es muy baja.
 \end{itemize}
 
-Riesgo 3:
+Riesgo 3: Mala elección del hardware de desarrollo.
 \begin{itemize}
-	\item Severidad (S): 
-	\item Ocurrencia (O):
+	\item Severidad (9): conlleva a la modificación del alcance del proyecto. 
+	\item Ocurrencia (8): dado la gran cantidad de sensores a utilizar puede ser que la experiencia previa de la empresa, utilizando hardware más limitado, no sea la adecuada para este proyecto.
+\end{itemize}
+
+Riesgo 4: No contar a tiempo con el hardware necesario.
+\begin{itemize}
+	\item Severidad (10): conlleva a no poder realizar el proyecto.
+	\item Ocurrencia (2): algunos sensores ya han sido comprados y otros componentes, que son fáciles de conseguir, están por encargarse.
+\end{itemize}
+
+Riesgo 5: Cancelación del proyecto por parte de la empresa.
+\begin{itemize}
+	\item Severidad (10): conlleva a no poder realizar el proyecto y la no aprobación de la especialización en IoT.
+	\item Ocurrencia (1): la ocurrencia es muy baja porque la firma del contrato ya está por realizarse y la empresa está muy interesada en este proyecto.
 \end{itemize}
 
 
-b) Tabla de gestión de riesgos:      (El RPN se calcula como RPN=SxO)
+Tabla de gestión de riesgos: (El RPN se calcula como RPN=SxO)
 
 \begin{table}[htpb]
 \centering
@@ -519,70 +481,211 @@ b) Tabla de gestión de riesgos:      (El RPN se calcula como RPN=SxO)
 \hline
 \rowcolor[HTML]{C0C0C0} 
 Riesgo & S & O & RPN & S* & O* & RPN* \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
+1-No cumplir con la fecha de entrega acordada       &10   &6   &50 \cellcolor{blue!15}     &9\cellcolor{black!10}    &3\cellcolor{black!10}    &27\cellcolor{blue!35}      \\ \hline
+2-Cumplir parcialmente con los requerimientos pactados con la empresa      &8   &3   &24     &    &    &      \\ \hline
+3-Mala elección del hardware de desarrollo       &9  &8   &72 \cellcolor{blue!15}     &7\cellcolor{black!10}    &4\cellcolor{black!10}    &28\cellcolor{blue!35}      \\ \hline
+4-No contar a tiempo con el hardware necesario       &10   &2   &20     &    &    &      \\ \hline
+5-Cancelación del proyecto por parte de la empresa       &10   &1   &10    &    &    &      \\ \hline
 \end{tabularx}%
 \end{table}
 
-Criterio adoptado: 
-Se tomarán medidas de mitigación en los riesgos cuyos números de RPN sean mayores a...
+Criterio adoptado:
 
-Nota: los valores marcados con (*) en la tabla corresponden luego de haber aplicado la mitigación.
+- Se tomarán medidas de mitigación en los riesgos cuyos números de RPN sean mayores a 35
 
-c) Plan de mitigación de los riesgos que originalmente excedían el RPN máximo establecido:
+Nota: los valores marcados con (*) en la tabla corresponden luego de haber aplicado la mitigación. Ambos casos se aprecian resaltados en colores.
+
+Plan de mitigación de los riesgos que originalmente excedían el RPN máximo establecido:
  
-Riesgo 1: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
-  Nueva asignación de S y O, con su respectiva justificación:
-  - Severidad (S): mientras más severo, más alto es el número (usar números del 1 al 10).
-          Justificar el motivo por el cual se asigna determinado número de severidad (S).
-  - Probabilidad de ocurrencia (O): mientras más probable, más alto es el número (usar del 1 al 10).
-          Justificar el motivo por el cual se asigna determinado número de (O).
+Riesgo 1: No cumplir con la fecha de entrega acordada.
+\begin{itemize}
+	\item Plan de mitigación: poner énfasis en el seguimiento y control del plan de trabajo. Asignar horas no planificadas fuera del horario de trabajo.
+	\item Severidad (9): la severidad bajará levemente sabiendo que se trabajará después de hora en caso que sea necesario para mitigar el riesgo. Pero sigue siendo alta si no se cumple la fecha de entrega.
+	\item Ocurrencia (3): al poner especial énfasis en la gestión del plan de trabajo y en la posibilidad de uso de horas fuera del horario laboral, la probabilidad de ocurrencia baja a la mitad.
+\end{itemize}
 
-Riesgo 2: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
- 
-Riesgo 3: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
-
-\end{consigna}
-
+Riesgo 3: Mala elección del hardware de desarrollo.
+\begin{itemize}
+	\item Plan de mitigación: profundo estudio de las distintas placas disponibles en el mercado antes de la elección.
+	\item Severidad (7): la severidad bajará sabiendo que se profundizará en el estudio del hardware a utilizar. Pero sigue siendo alto el impacto si se necesita cambiar de placa.
+	\item Ocurrencia (4): al estudiar en profundidad cada placa, la probabilidad de esta ocurrencia disminuye notablemente.
+\end{itemize}
 
 \section{12. Gestión de la calidad}
 \label{sec:calidad}
 
-\begin{consigna}{red}
-Para cada uno de los requerimientos del proyecto indique:
-\begin{itemize} 
-\item Req \#1: copiar acá el requerimiento.
-
-\begin{itemize}
-	\item Verificación para confirmar si se cumplió con lo requerido antes de mostrar el sistema al cliente. Detallar 
-	\item Validación con el cliente para confirmar que está de acuerdo en que se cumplió con lo requerido. Detallar  
-\end{itemize}
-
-\end{itemize}
-
-Tener en cuenta que en este contexto se pueden mencionar simulaciones, cálculos, revisión de hojas de datos, consulta con expertos, mediciones, etc.  Las acciones de verificación suelen considerar al entregable como ``caja blanca'', es decir se conoce en profundidad su funcionamiento interno.  En cambio, las acciones de validación suelen considerar al entregable como ``caja negra'', es decir, que no se conocen los detalles de su funcionamiento interno.
-
-\end{consigna}
+A continuación se detallan todos los requerimientos del sistema junto con la verificación y validación a ser llevada a cabo por parte del responsable del proyecto.
+\begin{enumerate}
+	\item Requerimientos técnicos
+		\begin{enumerate}
+			\item Los valores sensados por el hardware deben transmitirse por WiFi al SSID: IOT\_FRIGOR:
+			\begin{itemize}
+				\item Verificación: revisar que el firmware apunte en su configuración de WiFi al SSID mencionado.
+				\item Validación: probar la comunicación por WiFi y su conexión satisfactoria.
+			\end{itemize}
+			\item La red WiFi debe ser de 2.4Ghz con seguridad WPA/WPA2-Personal y encriptación AES o TKIP
+			\begin{itemize}
+				\item Verificación: revisar que el hardware elegido soporte esta frecuencia y niveles de seguridad.
+				\item Validación: realizar una conexión del hardware por WiFi y que su conexión sea satisfactoria.
+			\end{itemize}
+			\item Se debe disponer de línea de UPS en el sector para la conexión segura del hardware de monitoreo
+			\begin{itemize}
+				\item Verificación: revisar que llegue 220 V de UPS al sector en cuestión.
+				\item Validación: realizar la conexión de cualquier dispositivo de 220 V y proceder a cortar la energía eléctrica para validar su correcto funcionamiento.
+			\end{itemize}
+		\end{enumerate}
+	\item Requerimientos funcionales
+		\begin{enumerate}
+			\item El sistema debe medir el consumo en amperes del compresor N°1
+			\begin{itemize}
+				\item Verificación: solicitar el consumo del compresor al sector mantenimiento y verificar que la medición sea similar.
+				\item Validación: realizar una medición con pinza amperométrica y contrastar valores.
+			\end{itemize}
+			\item El sistema debe medir el consumo en amperes del compresor N°2
+			\begin{itemize}
+				\item Verificación: solicitar el consumo del compresor al sector mantenimiento y verificar que la medición sea similar.
+				\item Validación: realizar una medición con pinza amperométrica y contrastar valores.
+			\end{itemize}
+			\item El sistema debe medir el consumo en amperes de la bomba recirculadora
+			\begin{itemize}
+				\item Verificación: solicitar el consumo de la bomba recirculadora al sector mantenimiento y verificar que la medición sea similar.
+				\item Validación: realizar una medición con pinza amperométrica y contrastar valores.
+			\end{itemize}
+			\item El sistema debe medir la temperatura de succión del compresor N°1
+			\begin{itemize}
+				\item Verificación: solicitar la gráfica de temperaturas de succión al sector mantenimiento y verificar que la medición sea aproximada.
+				\item Validación: realizar una medición con termómetro patrón láser y contrastar valores.
+			\end{itemize}
+			\item El sistema debe medir la temperatura de succión del compresor N°2
+			\begin{itemize}
+				\item Verificación: solicitar la gráfica de temperaturas de succión al sector mantenimiento y verificar que la medición sea aproximada.
+				\item Validación: realizar una medición con termómetro patrón láser y contrastar valores.
+			\end{itemize}
+			\item El sistema debe medir la temperatura de salida de compresión del compresor N°1
+			\begin{itemize}
+				\item Verificación: solicitar la gráfica de temperaturas de salida al sector mantenimiento y verificar que la medición sea aproximada.
+				\item Validación: realizar una medición con termómetro patrón láser y contrastar valores.
+			\end{itemize}
+			\item El sistema debe medir la temperatura de salida de compresión del compresor N°2
+			\begin{itemize}
+				\item Verificación: solicitar la gráfica de temperaturas de salida al sector mantenimiento y verificar que la medición sea aproximada.
+				\item Validación: realizar una medición con termómetro patrón láser y contrastar valores.
+			\end{itemize}
+			\item El sistema debe medir la temperatura de entrada de los intercambiadores
+			\begin{itemize}
+				\item Verificación: inspeccionar visualmente la temperatura del intercambiador en el tablero principal y verificar que la medición sea similar.
+				\item Validación: realizar una medición con termómetro patrón láser y contrastar valores.
+			\end{itemize}
+			\item El sistema debe medir la temperatura de salida de los intercambiadores
+			\begin{itemize}
+				\item Verificación: inspeccionar visualmente la temperatura del intercambiador en el tablero principal y verificar que la medición sea similar.
+				\item Validación: realizar una medición con termómetro patrón láser y contrastar valores.
+			\end{itemize}
+			\item El sistema debe medir la temperatura de retorno del banco de condensadores
+			\begin{itemize}
+				\item Verificación: solicitar la gráfica de temperaturas de retorno al sector mantenimiento y verificar que la medición sea aproximada.
+				\item Validación: realizar una medición con termómetro patrón láser y contrastar valores.
+			\end{itemize}
+			\item El usuario debe poder visualizar en tiempo real los valores sensados desde su teléfono celular
+			\begin{itemize}
+				\item Verificación: abrir la aplicación y visualizar valores en tiempo real.
+				\item Validación: Contrastar valores visualizados en tiempo real contra tablero principal y medición a través de instrumentos patrones.
+			\end{itemize}
+			\item El sistema debe alertar por correo electrónico cualquier desvío
+			\begin{itemize}
+				\item Verificación: ejecutar un script de programación para verificar el correcto envío del correo electrónico.
+				\item Validación: realizar casos de prueba donde se superen los umbrales de notificación y validar la llegada del correo electrónico correspondiente.
+			\end{itemize}
+		\end{enumerate}
+	\item Requerimientos de documentación
+		\begin{enumerate}		
+			\item Se debe realizar un diagrama funcional del sistema legacy
+			\begin{itemize}
+				\item Verificación: comprobar que el diagrama sea acorde al funcionamiento del sistema legacy.
+				\item Validación: realizar varios casos de prueba del funcionamiento siguiendo el diagrama.
+			\end{itemize}
+			\item Se debe realizar un diagrama esquemático de las conexiones del hardware de monitoreo a utilizar
+			\begin{itemize}
+				\item Verificación: comprobar que el diagrama de conexiones sea acorde al hardware realizado.
+				\item Validación: realizar pruebas exhaustivas del funcionamiento del hardware.
+			\end{itemize}
+			\item Se debe realizar un diagrama de la instalación física a realizar
+			\begin{itemize}
+				\item Verificación: comprobar que el diagrama de instalación sea factible físicamente.
+				\item Validación: realizar pruebas de la instalación a realizar.
+			\end{itemize}
+			\item Se debe realizar un diagrama de flujos del sistema de alertas
+			\begin{itemize}
+				\item Verificación: comprobar que el diagrama de flujos sea acorde al funcionamiento del sistema de alertas.
+				\item Validación: realizar casos de pruebas exhaustivos del funcionamiento de las alertas.
+			\end{itemize}
+		\end{enumerate}
+	\item Requerimiento de testing
+		\begin{enumerate}		
+			\item Se debe realizar una prueba individual de cada sensor en laboratorio
+			\begin{itemize}
+				\item Verificación: comprobar el funcionamiento correcto de cada sensor de forma individual y que la medición sea acorde.
+				\item Validación: realizar pruebas en distintos valores de medición y contrastar con mediciones de dispositivo patrón.
+			\end{itemize}
+			\item Se debe realizar una prueba parcial del funcionamiento del hardware de monitoreo en laboratorio
+			\begin{itemize}
+				\item Verificación: comprobar el funcionamiento correcto del hardware y que los valores obtenidos sean correctos.
+				\item Validación: realizar pruebas prolongadas variando los valores sensados y contrastar con mediciones de dispositivo patrón.
+			\end{itemize}
+			\item Se debe realizar una prueba de las modificaciones realizadas al software principal en laboratorio
+			\begin{itemize}
+				\item Verificación: comprobar el funcionamiento correcto del software y que las modificaciones realizadas no afecten el funcionamiento general del sistema.
+				\item Validación: realizar pruebas exhaustivas del software para validar su funcionamiento.
+			\end{itemize}
+			\item Se debe realizar una prueba del sistema de alertas en laboratorio
+			\begin{itemize}
+				\item Verificación: alterar un script de programación para verificar el correcto envío del correo electrónico de alerta.
+				\item Validación: tomar un sensor y generarle una variación para que supere los umbrales de notificación y validar la llegada del correo electrónico.
+			\end{itemize}
+			\item Se debe realizar una prueba final completa de toda la instalación antes de la puesta en marcha
+			\begin{itemize}
+				\item Verificación: controlar que todos los sensores estén en su lugar y generando sus lecturas.
+				\item Validación: poner en marcha el sistema completo y validar con pruebas exhaustivas y prolongadas las funcionalidades requeridas.
+			\end{itemize}
+		\end{enumerate}
+	\item Requerimientos de la interfaz
+		\begin{enumerate}		
+			\item Se debe utilizar la interfaz de la plataforma Blynk
+			\begin{itemize}
+				\item Verificación: controlar que todos los valores medidos se puedan visualizar desde la interfase de Blynk.
+				\item Validación: mostrar como se visualizan fácilmente los datos medidos en tiempo real y contrastar con sistemas patrones.
+			\end{itemize}
+		\end{enumerate}
+	\item Requerimientos interoperabilidad
+		\begin{enumerate}		
+			\item El nuevo módulo de monitoreo del túnel de congelado debe quedar integrado al sistema legacy
+			\begin{itemize}
+				\item Verificación: revisar el nuevo módulo de monitoreo esté integrado al sistema legacy.
+				\item Validación: mostrar al cliente que la información necesaria para el sistema legacy es accesible.
+			\end{itemize}
+		\end{enumerate}
+\end{enumerate}
 
 \section{13. Procesos de cierre}    
 \label{sec:cierre}
 
-\begin{consigna}{red}
-Establecer las pautas de trabajo para realizar una reunión final de evaluación del proyecto, tal que contemple las siguientes actividades:
-
+Una vez concluido el proyecto, se procederá a su cierre o proceso de finalización. Para esto, se contemplan las siguientes actividades:
 \begin{itemize}
-	\item Pautas de trabajo que se seguirán para analizar si se respetó el Plan de Proyecto original:
-	 - Indicar quién se ocupará de hacer esto y cuál será el procedimiento a aplicar. 
+	\item Análisis de las pautas de trabajo:
+	\begin{itemize}
+		\item Persona responsable: Lic. Leandro Ciribé
+		\item Procedimiento: Se analizará si se respetó el plan de proyecto original, contemplando que se haya cumplido con la fecha de finalización pautada, la cantidad de horas asignadas al proyecto y el porcentaje de requerimientos cumplidos.
+	 \end{itemize}
 	\item Identificación de las técnicas y procedimientos útiles e inútiles que se emplearon, y los problemas que surgieron y cómo se solucionaron:
-	 - Indicar quién se ocupará de hacer esto y cuál será el procedimiento para dejar registro.
-	\item Indicar quién organizará el acto de agradecimiento a todos los interesados, y en especial al equipo de trabajo y colaboradores:
-	  - Indicar esto y quién financiará los gastos correspondientes.
+	\begin{itemize}
+		\item Persona responsable: Lic. Leandro Ciribé
+		\item Procedimiento: Se analizarán y evaluarán las técnicas y procedimientos que resultaron útiles para lograr los objetivos, su nivel de cumplimiento y las acciones no planificadas que se tomaron para asegurarlos.
+	 \end{itemize}
+	\item Acto formal de cierre:
+	\begin{itemize}
+		\item Persona responsable: Lic. Leandro Ciribé
+		\item Procedimiento: El responsable del proyecto estará a cargo de realizar el acto de cierre, con el objetivo de agradecer a todos los involucrados en el proyecto, miembros del jurado, docentes y autoridades competentes.
+	 \end{itemize}
 \end{itemize}
-
-\end{consigna}
-
 
 \end{document}
