@@ -111,7 +111,7 @@ Se adjunta a esta acta la planificación inicial.
 
 Para el proceso de congelado, la caja debe ingresarse en un “túnel de congelado” por 36 horas para que alcance una temperatura bajo cero y pueda ser luego trasladada a la cámara de congelado donde se almacenará a una temperatura aproximada de -24ºC.
 
-Actualmente, el establecimiento frigorífico cuenta con un sistema de monitoreo y alertas de gran parte de sus instalaciones de frío; entre las cuales se incluyen el sensado de temperatura ambiente de todas las cámaras de la planta, el monitoreo de encendido y apagado de las mismas y el control de la central de congelado. Para toda esta implementación se utilizó hardware de sensado basado en el controlador WiFi ESP8266 y una gran integración de distintos sistemas de software para la visualización de los valores en tiempo real y el almacenamiento de los datos recolectados para su posterior análisis. Para el sistema de alertas se utiliza el correo electrónico, dado que es el medio más efectivo para el personal de mantenimiento.
+Actualmente, el establecimiento frigorífico cuenta con un sistema de monitoreo y alertas de gran parte de sus instalaciones de frío; entre las cuales se incluyen el sensado de temperatura ambiente de todas las cámaras de la planta, el monitoreo de encendido y apagado de las mismas y el monitoreo de la central de congelado. Para toda esta implementación se utilizó hardware de sensado basado en el controlador WiFi ESP8266 y una gran integración de distintos sistemas de software para la visualización de los valores en tiempo real y el almacenamiento de los datos recolectados para su posterior análisis. Para el sistema de alertas se utiliza el correo electrónico, dado que es el medio más efectivo para el personal de mantenimiento.
 
 El presente proyecto se destaca especialmente por incorporar al sistema actual el monitoreo del túnel de congelado, que es una de las actividades claves en el proceso de conservación y almacenamiento de la carne con destino a exportación, como se puede observar en la figura \ref{fig:canvasdone} dentro del modelo Canvas. 
 
@@ -147,7 +147,7 @@ A nivel general, el sistema debe poder cumplir con el objetivo de predecir falla
 
 Cada uno de estos puntos de sensado proporciona datos que pueden ser transformados en información extremadamente útil. Por ejemplo, una temperatura de succión muy baja, por un período de tiempo prolongado, puede indicar que está retornando líquido al compresor, lo cual es de una gravedad considerable.
 
-Siguiendo el comportamiento del sistema que ya ha sido implementado parcialmente por la empresa (ver figura \ref{fig:diagramabloques}), la información recolectada por el hardware de monitoreo debe enviarse por WiFi al servidor Blynk a través del protocolo MQTT. El servidor Blynk presenta una API REST para que los datos puedan ser accedidos desde Python y almacenados en una base de datos PostgreSQL para su posterior utilización y análisis. Al momento de ir sensando y recolectando cada dato se ejecutan las validaciones correspondientes que activan alertas por correo electrónico al personal de mantenimiento. A su vez, los usuarios pueden visualizar los datos en tiempo real desde la aplicación en Blynk, ya sea dentro o fuera de la empresa, en cuyo caso la conexión se realiza a través de una red privada virtual (VPN). Para consultar, visualizar o graficar la información recolectada se utilizan páginas web en Django; y en determinados puntos críticos de control se puede acceder a información histórica específica a través de web services.
+Siguiendo el comportamiento del sistema que ya ha sido implementado parcialmente por la empresa (ver figura \ref{fig:diagramabloques}), la información recolectada por el hardware de monitoreo debe enviarse por WiFi al servidor Blynk a través del protocolo MQTT. El servidor Blynk presenta una API REST para que los datos puedan ser accedidos desde Python y almacenados en bases de datos PostgreSQL y ORACLE para su posterior análisis. Al momento de ir sensando y recolectando cada dato se ejecutan las validaciones correspondientes que activan alertas por correo electrónico al personal de mantenimiento. A su vez, los usuarios pueden visualizar los datos en tiempo real desde la aplicación en Blynk, ya sea dentro o fuera de la empresa, en cuyo caso la conexión se realiza a través de una red privada virtual (VPN). Para consultar, visualizar o graficar la información recolectada se utilizan páginas web en Django; y en determinados puntos críticos de control se puede acceder a información histórica específica a través de web services.
 
 \begin{figure}[htpb]
 \centering 
@@ -445,13 +445,15 @@ Los riesgos que figuran a continuación serán cuantificados de acuerdo a los si
 Riesgo 1: No cumplir con la fecha de entrega acordada.
 \begin{itemize}
 	\item Severidad (10): este riesgo conlleva a no poder aprobar la especialización en IoT.\\
-	\item Ocurrencia (6): dado que el proyecto será realizado en horas de trabajo se podrían estirar los plazos de entrega. Pese a esto, al ser un proyecto importante para la empresa, es posible de que ocurra. \\
+	\item Ocurrencia (6): dado que el proyecto será realizado en horas de trabajo se podrían estirar los plazos de entrega. Al ser un proyecto importante para la empresa es medianamente probable que suceda. \\
 \end{itemize}   
+
+\pagebreak
 
 Riesgo 2: Cumplir parcialmente con los requerimientos pactados con la empresa.
 \begin{itemize}
 	\item Severidad (8): conlleva a la entrega de un producto que no funciona como es esperado por el cliente o con funcionalidad disminuida.
-	\item Ocurrencia (3): como un sistema similar ya ha sido realizado por la empresa en otros equipos de refrigeración la probabilidad que esto ocurra es muy baja.
+	\item Ocurrencia (3): un sistema similar ya ha sido realizado por la empresa en otros equipos de refrigeración, por lo tanto, la probabilidad de que esto ocurra es muy baja.
 \end{itemize}
 
 Riesgo 3: Mala elección del hardware de desarrollo.
@@ -495,6 +497,8 @@ Criterio adoptado:
 
 Nota: los valores marcados con (*) en la tabla corresponden luego de haber aplicado la mitigación. Ambos casos se aprecian resaltados en colores.
 
+\pagebreak
+
 Plan de mitigación de los riesgos que originalmente excedían el RPN máximo establecido:
  
 Riesgo 1: No cumplir con la fecha de entrega acordada.
@@ -526,12 +530,12 @@ A continuación se detallan todos los requerimientos del sistema junto con la ve
 			\item La red WiFi debe ser de 2.4Ghz con seguridad WPA/WPA2-Personal y encriptación AES o TKIP
 			\begin{itemize}
 				\item Verificación: revisar que el hardware elegido soporte esta frecuencia y niveles de seguridad.
-				\item Validación: realizar una conexión del hardware por WiFi y que su conexión sea satisfactoria.
+				\item Validación: realizar una conexión del hardware por WiFi y validar que su conexión sea satisfactoria.
 			\end{itemize}
 			\item Se debe disponer de línea de UPS en el sector para la conexión segura del hardware de monitoreo
 			\begin{itemize}
 				\item Verificación: revisar que llegue 220 V de UPS al sector en cuestión.
-				\item Validación: realizar la conexión de cualquier dispositivo de 220 V y proceder a cortar la energía eléctrica para validar su correcto funcionamiento.
+				\item Validación: realizar la conexión de cualquier dispositivo de 220 V y proceder a cortar la energía eléctrica para validar su correcto funcionamiento con UPS.
 			\end{itemize}
 		\end{enumerate}
 	\item Requerimientos funcionales
@@ -553,22 +557,22 @@ A continuación se detallan todos los requerimientos del sistema junto con la ve
 			\end{itemize}
 			\item El sistema debe medir la temperatura de succión del compresor N°1
 			\begin{itemize}
-				\item Verificación: solicitar la gráfica de temperaturas de succión al sector mantenimiento y verificar que la medición sea aproximada.
+				\item Verificación: solicitar la gráfica de temperaturas de succión al sector mantenimiento y verificar que la medición sea similar.
 				\item Validación: realizar una medición con termómetro patrón láser y contrastar valores.
 			\end{itemize}
 			\item El sistema debe medir la temperatura de succión del compresor N°2
 			\begin{itemize}
-				\item Verificación: solicitar la gráfica de temperaturas de succión al sector mantenimiento y verificar que la medición sea aproximada.
+				\item Verificación: solicitar la gráfica de temperaturas de succión al sector mantenimiento y verificar que la medición sea similar.
 				\item Validación: realizar una medición con termómetro patrón láser y contrastar valores.
 			\end{itemize}
 			\item El sistema debe medir la temperatura de salida de compresión del compresor N°1
 			\begin{itemize}
-				\item Verificación: solicitar la gráfica de temperaturas de salida al sector mantenimiento y verificar que la medición sea aproximada.
+				\item Verificación: solicitar la gráfica de temperaturas de salida al sector mantenimiento y verificar que la medición sea similar.
 				\item Validación: realizar una medición con termómetro patrón láser y contrastar valores.
 			\end{itemize}
 			\item El sistema debe medir la temperatura de salida de compresión del compresor N°2
 			\begin{itemize}
-				\item Verificación: solicitar la gráfica de temperaturas de salida al sector mantenimiento y verificar que la medición sea aproximada.
+				\item Verificación: solicitar la gráfica de temperaturas de salida al sector mantenimiento y verificar que la medición sea similar.
 				\item Validación: realizar una medición con termómetro patrón láser y contrastar valores.
 			\end{itemize}
 			\item El sistema debe medir la temperatura de entrada de los intercambiadores
@@ -581,6 +585,9 @@ A continuación se detallan todos los requerimientos del sistema junto con la ve
 				\item Verificación: inspeccionar visualmente la temperatura del intercambiador en el tablero principal y verificar que la medición sea similar.
 				\item Validación: realizar una medición con termómetro patrón láser y contrastar valores.
 			\end{itemize}
+
+\pagebreak
+
 			\item El sistema debe medir la temperatura de retorno del banco de condensadores
 			\begin{itemize}
 				\item Verificación: solicitar la gráfica de temperaturas de retorno al sector mantenimiento y verificar que la medición sea aproximada.
@@ -606,7 +613,7 @@ A continuación se detallan todos los requerimientos del sistema junto con la ve
 			\end{itemize}
 			\item Se debe realizar un diagrama esquemático de las conexiones del hardware de monitoreo a utilizar
 			\begin{itemize}
-				\item Verificación: comprobar que el diagrama de conexiones sea acorde al hardware realizado.
+				\item Verificación: comprobar minuciosamente que el diagrama de conexiones sea acorde al hardware realizado.
 				\item Validación: realizar pruebas exhaustivas del funcionamiento del hardware.
 			\end{itemize}
 			\item Se debe realizar un diagrama de la instalación física a realizar
@@ -624,14 +631,17 @@ A continuación se detallan todos los requerimientos del sistema junto con la ve
 		\begin{enumerate}		
 			\item Se debe realizar una prueba individual de cada sensor en laboratorio
 			\begin{itemize}
-				\item Verificación: comprobar el funcionamiento correcto de cada sensor de forma individual y que la medición sea acorde.
+				\item Verificación: comprobar el funcionamiento correcto de cada sensor de forma individual y que la medición sea correcta.
 				\item Validación: realizar pruebas en distintos valores de medición y contrastar con mediciones de dispositivo patrón.
 			\end{itemize}
 			\item Se debe realizar una prueba parcial del funcionamiento del hardware de monitoreo en laboratorio
 			\begin{itemize}
-				\item Verificación: comprobar el funcionamiento correcto del hardware y que los valores obtenidos sean correctos.
+				\item Verificación: comprobar el funcionamiento correcto de todo el hardware de monitoreo y que los valores obtenidos sean correctos.
 				\item Validación: realizar pruebas prolongadas variando los valores sensados y contrastar con mediciones de dispositivo patrón.
 			\end{itemize}
+
+\pagebreak
+
 			\item Se debe realizar una prueba de las modificaciones realizadas al software principal en laboratorio
 			\begin{itemize}
 				\item Verificación: comprobar el funcionamiento correcto del software y que las modificaciones realizadas no afecten el funcionamiento general del sistema.
@@ -644,8 +654,8 @@ A continuación se detallan todos los requerimientos del sistema junto con la ve
 			\end{itemize}
 			\item Se debe realizar una prueba final completa de toda la instalación antes de la puesta en marcha
 			\begin{itemize}
-				\item Verificación: controlar que todos los sensores estén en su lugar y generando sus lecturas.
-				\item Validación: poner en marcha el sistema completo y validar con pruebas exhaustivas y prolongadas las funcionalidades requeridas.
+				\item Verificación: controlar que todos los sensores estén en su lugar y generando sus lecturas correctamente.
+				\item Validación: poner en marcha todo el sistema para una prueba completa y validar con pruebas exhaustivas y prolongadas las funcionalidades requeridas.
 			\end{itemize}
 		\end{enumerate}
 	\item Requerimientos de la interfaz
@@ -653,14 +663,14 @@ A continuación se detallan todos los requerimientos del sistema junto con la ve
 			\item Se debe utilizar la interfaz de la plataforma Blynk
 			\begin{itemize}
 				\item Verificación: controlar que todos los valores medidos se puedan visualizar desde la interfase de Blynk.
-				\item Validación: mostrar como se visualizan fácilmente los datos medidos en tiempo real y contrastar con sistemas patrones.
+				\item Validación: mostrar como se visualizan fácilmente los datos medidos en tiempo real y contrastar con sistemas patrones y tableros.
 			\end{itemize}
 		\end{enumerate}
 	\item Requerimientos interoperabilidad
 		\begin{enumerate}		
 			\item El nuevo módulo de monitoreo del túnel de congelado debe quedar integrado al sistema legacy
 			\begin{itemize}
-				\item Verificación: revisar el nuevo módulo de monitoreo esté integrado al sistema legacy.
+				\item Verificación: revisar que el nuevo módulo de monitoreo esté integrado con el sistema legacy.
 				\item Validación: mostrar al cliente que la información necesaria para el sistema legacy es accesible.
 			\end{itemize}
 		\end{enumerate}
@@ -674,8 +684,11 @@ Una vez concluido el proyecto, se procederá a su cierre o proceso de finalizaci
 	\item Análisis de las pautas de trabajo:
 	\begin{itemize}
 		\item Persona responsable: Lic. Leandro Ciribé
-		\item Procedimiento: Se analizará si se respetó el plan de proyecto original, contemplando que se haya cumplido con la fecha de finalización pautada, la cantidad de horas asignadas al proyecto y el porcentaje de requerimientos cumplidos.
+		\item Procedimiento: Se analizará si se respetó el plan de proyecto original, contemplando que se haya cumplido con la fecha de finalización pautada, la cantidad de horas asignadas y el porcentaje de requerimientos cumplidos.
 	 \end{itemize}
+
+\pagebreak
+
 	\item Identificación de las técnicas y procedimientos útiles e inútiles que se emplearon, y los problemas que surgieron y cómo se solucionaron:
 	\begin{itemize}
 		\item Persona responsable: Lic. Leandro Ciribé
